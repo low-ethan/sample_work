@@ -1,32 +1,21 @@
-import numpy as np
 import flair
 import flair.data
 import pandas as pd
-from flair.data import Corpus
-from flair.datasets import TREC_6
 from flair.embeddings import TransformerDocumentEmbeddings
 from flair.models import TextClassifier
 from flair.trainers import ModelTrainer
 from flair.data import Corpus
-from flair.datasets import CSVClassificationCorpus
 from sklearn.model_selection import train_test_split
 from sklearn.utils import resample
-import nlpaug.augmenter.char as nac
 import nlpaug.augmenter.word as naw
-import nlpaug.augmenter.sentence as nas
-from nlpaug.util import Action
-import nlpaug.flow as nafc
-import os
-import nltk
-import csv
 from Text_generator import gen_list_of_exempt_words
 
 
 def append_to_df(df, section, val):
     df = df[['text', section+'_bucket']]
 
-    df = df.append(pd.read_csv('upsample_txt/'+section+val+'.csv'))
-    df =df.append(pd.read_csv('up_copy_txt/'+section+val+'.csv'))
+    df = df.append(pd.read_csv('generated_data/'+section+val+'.csv'))
+    df =df.append(pd.read_csv('Dataset_copy/'+section+val+'.csv'))
     return df
 
 def load_df_to_sentences(df: pd.DataFrame, label_type):

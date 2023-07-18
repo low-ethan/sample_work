@@ -1,3 +1,7 @@
+
+# Runs the different ML Models and compares the results, ensembles them
+
+
 import pandas as pd
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler

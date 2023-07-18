@@ -1,5 +1,4 @@
 import string
-
 import pandas as pd
 import torch
 import nlpaug.augmenter.char as nac
@@ -16,7 +15,7 @@ os.environ["MODEL_DIR"] = 'model/'
 
 
 def gen_list_of_exempt_words():
-    df2 = pd.read_csv("model/unigram_freq.csv")
+    df2 = pd.read_csv("upsample_text/word_frequency.csv")
     word_list = df2["word"]
     ex_word = word_list[0:100].values.tolist()
     cap = []
@@ -50,7 +49,7 @@ def main(dataframe_filepath: str, section, val):
     print("Finished augmenting")
     print(len(augmented_text))
 
-    write_to_file('upsample_txt/', section, val, augmented_text)
+    write_to_file('upsample_text/generated_data/', section, val, augmented_text)
 
 
 def upsample_basic(path, section, val):
@@ -64,7 +63,7 @@ def upsample_basic(path, section, val):
     # text += text
     print(len(text))
 
-    write_to_file('up_copy_txt/', section, val, text)
+    write_to_file('upsample_text/Dataset_copy/', section, val, text)
 
 
 
