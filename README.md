@@ -1,4 +1,4 @@
-Code Repository for sample code I have done
+# Code Repository for sample code I have done
 
 Advanced Algorithms: 
   Two problems I solved during a test for my Advanced Algorithms course, showing proficiency in Python.
